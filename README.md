@@ -5,6 +5,7 @@ python read_bag.py -i example.bag
 ```
 
 Step 0: Power connection and calibration
+
 Step 1: Open terminal and type:
 ```
 roscore
