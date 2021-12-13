@@ -10,7 +10,7 @@ Step 1: Open terminal and type:
 ```
 roscore
 ```
-Step 2: Open new terminal, connect to drone PC by secure shell:
+Step 2: Open new terminal, connect to drone PC by secure shell and initiate localization algorithm:
 ```
 sh connection.sh
 roslaunch cerlab_uav mavros_l515_t265_octomap.launch
