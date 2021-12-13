@@ -19,7 +19,9 @@ Step 3: Open new terminal and launch inspection software:
 ```
 roslaunch cerlab_uav rviz_inspection.launch
 ```
-Step 4: Open new ternimal and start interactive algorithm:
+Step 4: Manual inspection of status of drone and ground computer
+
+Step 5: Open new ternimal and start interactive algorithm:
 ```
 roslaunch robot_explorer inspection_interactive.launch
 ```
