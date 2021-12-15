@@ -3,7 +3,7 @@
 % Chenhao Yang
 clc; clear; close all;
 % Load the ULOG file. Specify the relative path of the file.
-ulog = ulogreader('log_78_2021-12-10-16-29-00.ulg');
+ulog = ulogreader('log_11_2021-12-14-15-06-56——alltitude.ulg');
 
 % Read all topic messages.
 msg = readTopicMsgs(ulog);
@@ -158,7 +158,10 @@ ylabel(gca, 'Vehicle attitude setpoint - thrust body', ...
 figure("Units","normalized","Position",[0.2,0.5,0.6,0.4]);
 hold on;
 t = hover_thrust_estimate.timestamp;
+yyaxis left
 plot(t, hover_thrust_estimate.hover_thrust,'LineWidth',2);
+yyaxis right
+plot(t, hover_thrust_estimate.valid,'LineWidth',2);
 legend('hover thrust estimate','Location','northwest');
 
 set(gca, ... 
