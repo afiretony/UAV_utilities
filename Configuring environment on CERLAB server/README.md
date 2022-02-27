@@ -2,7 +2,7 @@
 
 Chenhao Yang
 
-Updated on: Feb.26.2022
+Updated on: Feb.27.2022
 
 ---
 
@@ -21,7 +21,7 @@ Cerlab25 has a Nvidia GTX 1080ti GPU
 Open terminal on your machine and type:
 
 ```shell
-ssh <your andrew id>@cerlab23.andrew.cmu.edu
+ssh <your_andrew_id>@cerlab23.andrew.cmu.edu
 ```
 
 This should prompt you for password, you should use your CMU password.
@@ -48,10 +48,54 @@ To see these additional updates run: apt list --upgradable
 Your Hardware Enablement Stack (HWE) is supported until April 2025.
 *** System restart required ***
 Last login: Sat Feb 26 09:00:51 2022 from ...
-<your andrew id>@cerlab23:~$
+<your_andrew_id>@cerlab23:~$
 ```
 
 [Optional] You can exit the server using cmd: `exit`.
+
+[Optional] Log in server without re-typing your password using ssh-keygen & ssh-copy-id: 
+
+1. Create public and private keys using ssh-key-gen on local-host 
+
+   ```sh
+   chenhaoyang@chenhaos-air ~ % ssh-keygen
+   Generating public/private rsa key pair.
+   Enter file in which to save the key (/Users/chenhaoyang/.ssh/id_rsa): [Press Enter]
+   Enter passphrase (empty for no passphrase): [Press Enter]
+   Enter same passphrase again: [Press Enter]
+   Your identification has been saved in /Users/chenhaoyang/.ssh/id_rsa
+   Your public key has been saved in /Users/chenhaoyang/.ssh/id_rsa.pub
+   The key fingerprint is:
+   SHA256:PAleYLcvgqr+6Bqpsdz8wg8q73N1B1anq6yYAqPa/u8 chenhaoyang@chenhaos-air.wifi.local.cmu.edu
+   The key's randomart image is:
+   +---[RSA 3072]----+
+   |      o .        |
+   |     . o .. .    |
+   |      . o. o     |
+   |     o +oo.      |
+   |    . o.S...     |
+   |o. .  ...oo      |
+   |=oo. . o o       |
+   |=*Booo  o        |
+   |%X*OB=E.         |
+   +----[SHA256]-----+
+   ```
+
+2. Copy the public key to remote-host using ssh-copy-id 
+
+   ```shell
+   ssh-copy-id -i ~/.ssh/id_rsa.pub <your_andrew_id>@cerlab23.andrew.cmu.edu
+   ```
+
+3. Login to remote-host without entering the password
+
+   ```shell
+   ssh <your_andrew_id>@cerlab23.andrew.cmu.edu
+   ```
+
+   If everything works fine, you don't need to re-enter password every time you log in on your machine.
+
+   
 
 There are other useful commands, e.g. transferring files from your local machine to the server, here is a good resource: [Using Files & Commands](https://www.cs.cmu.edu/~15131/f16/topics/terminal-usage/files-commands/).
 
@@ -84,7 +128,7 @@ source ~/.bashrc
 If everything works well, you should be able to see:
 
 ```shell
-(base) <your andrew id>@cerlab23:~$
+(base) <your_andrew_id>@cerlab23:~$
 ```
 
 It means conda is now ready to use.
@@ -132,7 +176,7 @@ For other conda commands and installing packages, please refer to [Managing envi
    [Recommanded] Check if cuda-version PyTorch is used:
 
    ```shell
-   (openmmlab) chenhao2@cerlab23:~$ python
+   (openmmlab) your_andrew_id@cerlab23:~$ python
    Python 3.9.7 (default, Sep 16 2021, 13:09:58) 
    [GCC 7.5.0] :: Anaconda, Inc. on linux
    Type "help", "copyright", "credits" or "license" for more information.
@@ -209,7 +253,7 @@ This is a nice-to-have feature, so you can do everything on Jupyter Lab with sim
    [I 2022-02-26 11:13:57.456 ServerApp] jupyterlab | extension was successfully linked.
    ...
        To access the server, open this file in a browser:
-           file:///home/chenhao2/.local/share/jupyter/runtime/jpserver-1276972-open.html
+           file:///home/your_andrew_id/.local/share/jupyter/runtime/jpserver-1276972-open.html
        Or copy and paste one of these URLs:
            http://localhost:8887/lab?token=a7231fb9108f5b79337b7b44e93c19224b7be4288e71f545
         or http://127.0.0.1:8887/lab?token=a7231fb9108f5b79337b7b44e93c19224b7be4288e71f545
@@ -220,14 +264,14 @@ This is a nice-to-have feature, so you can do everything on Jupyter Lab with sim
 5. On your local machine, run:
 
    ```shell
-   ssh -N -L localhost:8887:localhost:8887 <your andrew id>@cerlab23.andrew.cmu.edu
+   ssh -N -L localhost:8887:localhost:8887 <your_andrew_id>@cerlab23.andrew.cmu.edu
    ```
 
    And type in your password.
 
 6. On your local machine, open a webpage with address:
 
-   ```http
+   ```shell
    http://localhost:8887/ 
    ```
 
